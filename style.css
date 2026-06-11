@@ -1015,13 +1015,23 @@ a {
         inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
-/* Perfect square photo frame */
-.album-inner img {
+/* Bulletproof square frame using padding-top trick */
+.album-photo-wrap {
+    position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    padding-top: 100%; /* forces 1:1 square */
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.album-photo-wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 2px;
 }
 
 /* Caption sits outside/below the frame */
