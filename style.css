@@ -214,10 +214,20 @@ a {
 }
 
 /* ═══════════════════════════════════════════════════════
-   HERO SECTION — STATIC
+   HERO SECTION — SCROLL LOGO REVEAL
    ═══════════════════════════════════════════════════════ */
+
+/* Tall section gives scroll room for the transition */
 .hero-section {
     position: relative;
+    width: 100%;
+    height: calc(100vh + 700px);
+}
+
+/* Sticky viewport — stays pinned while hero scrolls */
+.hero-sticky {
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     min-height: 600px;
@@ -255,12 +265,14 @@ a {
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 2;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 1rem;
     padding: 2rem;
 }
@@ -286,6 +298,25 @@ a {
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-top: 0.25rem;
+}
+
+/* Logo — hidden initially, revealed on scroll */
+.hero-logo-center {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.hero-logo-big {
+    width: clamp(180px, 28vw, 300px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 60px rgba(212,175,55,0.45))
+            drop-shadow(0 0 20px rgba(0,0,0,0.6));
 }
 
 /* ── Scroll Indicator ── */

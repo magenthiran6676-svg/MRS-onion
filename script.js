@@ -85,6 +85,7 @@
         gsap.set('.hero-title .word-inner', { y: '110%' });
         gsap.set(['.hero-content .premium-badge', '.hero-since', '.hero-tagline'], { autoAlpha: 0, y: 20 });
         gsap.set('.scroll-indicator', { autoAlpha: 0, y: 10 });
+        gsap.set('.hero-logo-center', { opacity: 0, scale: 0.6 });
 
         // ── Loader ──
         const loader    = document.querySelector('.loader');
@@ -151,7 +152,37 @@
             }, '-=0.5');
 
         // ══════════════════════════════════════════
-        // 3. SECTION REVEAL ANIMATIONS
+        // 3. HERO SCROLL — TEXT OUT → LOGO IN
+        // ══════════════════════════════════════════
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: '.hero-section',
+                start: 'top top',
+                end: '+=650',
+                scrub: 1.5,
+            }
+        })
+        // Text fades up and out
+        .to('.hero-content', {
+            opacity: 0,
+            y: -60,
+            ease: 'power2.in',
+            duration: 0.45,
+        }, 0)
+        // Scroll indicator fades fast
+        .to('.scroll-indicator', {
+            opacity: 0,
+            duration: 0.2,
+        }, 0)
+        // Logo scales up and fades in
+        .fromTo('.hero-logo-center',
+            { opacity: 0, scale: 0.6 },
+            { opacity: 1, scale: 1, ease: 'power3.out', duration: 0.55 },
+            0.3
+        );
+
+        // ══════════════════════════════════════════
+        // 4. SECTION REVEAL ANIMATIONS
         // ══════════════════════════════════════════
         const revealTexts = document.querySelectorAll('.reveal-text');
         revealTexts.forEach(el => {
