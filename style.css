@@ -312,11 +312,13 @@ a {
 }
 
 .hero-logo-big {
-    width: clamp(180px, 28vw, 300px);
+    width: clamp(240px, 42vw, 460px);
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 60px rgba(212,175,55,0.45))
-            drop-shadow(0 0 20px rgba(0,0,0,0.6));
+    filter: brightness(1.8) contrast(1.1)
+            drop-shadow(0 0 40px rgba(255,255,255,0.6))
+            drop-shadow(0 0 80px rgba(212,175,55,0.5))
+            drop-shadow(0 0 120px rgba(212,175,55,0.25));
 }
 
 /* ── Scroll Indicator ── */
