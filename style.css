@@ -315,10 +315,7 @@ a {
     width: clamp(240px, 42vw, 460px);
     height: auto;
     object-fit: contain;
-    filter: brightness(1.8) contrast(1.1)
-            drop-shadow(0 0 40px rgba(255,255,255,0.6))
-            drop-shadow(0 0 80px rgba(212,175,55,0.5))
-            drop-shadow(0 0 120px rgba(212,175,55,0.25));
+    filter: brightness(0) invert(1);
 }
 
 /* ── Scroll Indicator ── */
